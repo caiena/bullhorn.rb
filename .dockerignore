@@ -1,0 +1,4 @@
+# Ignore docker config directory
+.docker/*
+!.docker/bin
+!.docker/.ssh

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+
+# ssh keys
+[[ -f .docker/.ssh/id_rsa ]] || cp ~/.ssh/id_rsa .docker/.ssh/id_rsa
+
+
+# making sure nothing is up
+docker-compose down
+
+# setup bullhorn
+docker-compose build bullhorn
+docker-compose run --rm bullhorn bundle
+
+
+docker-compose down
+
+echo "done! now fire it up with bin/docker-bash"
