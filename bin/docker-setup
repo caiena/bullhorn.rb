@@ -9,11 +9,11 @@ set -vx
 
 
 # making sure nothing is up
-docker-compose down
+docker-compose down -v
 
 # setup bullhorn
 docker-compose build bullhorn
-docker-compose run --rm bullhorn bundle
+docker-compose run --rm bullhorn bundle install
 
 
 docker-compose down
