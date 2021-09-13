@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "simple_logger"
+require "sentry-ruby"
 
 
 module Bullhorn

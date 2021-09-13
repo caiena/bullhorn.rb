@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "bullhorn/sentry_logger"
-require "sentry-ruby"
 
 RSpec.describe Bullhorn::SentryLogger do
 
