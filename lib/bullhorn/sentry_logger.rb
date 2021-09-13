@@ -25,7 +25,7 @@ module Bullhorn
     end
 
     # @implement
-    # Adapting custom write to Sentry Ravens's capture message API
+    # Adapting custom write to Sentry Ruby capture message API
     def write(severity, message, _progname, sentry: nil)
       sentry ||= {}
       sentry_options = sentry.merge level: severity_name_for(severity)
