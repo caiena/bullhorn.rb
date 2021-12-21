@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "bullhorn/sentry_logger"
-require "sentry-raven-without-integrations"
-
 
 RSpec.describe Bullhorn::SentryLogger do
 
@@ -55,17 +53,16 @@ RSpec.describe Bullhorn::SentryLogger do
     message = "log message"
     options = { level: "error", extra: { something: "else" } }
 
-    expect(Raven).to receive(:capture_message).with(message, options).once
+    expect(Sentry).to receive(:capture_message).with(message, options).once
 
     logger.error message, sentry: options
   end
 
-  it "handles logging exceptions with specific Raven API" do
+  it "handles logging exceptions with specific Sentry API" do
     logger = Bullhorn::SentryLogger.new
-    message = Exception.new "test"
+    message = Exception.new "log message two"
     options = { level: "error", extra: { something: "else" } }
-
-    expect(Raven).to receive(:capture_exception).with(message, options).once
+    expect(Sentry).to receive(:capture_exception).with(message, options).once
 
     logger.error message, sentry: options
   end

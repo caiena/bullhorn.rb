@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "simple_logger"
+require "sentry-ruby"
 
 
 module Bullhorn
-  # adapts Sentry/Raven API to Ruby Logger api
+  # adapts Sentry API to Ruby Logger api
   # @see https://docs.sentry.io/clients/ruby/context/
   class SentryLogger < SimpleLogger
 
@@ -25,7 +26,7 @@ module Bullhorn
     end
 
     # @implement
-    # Adapting custom write to Sentry Ravens's capture message API
+    # Adapting custom write to Sentry Ruby capture message API
     def write(severity, message, _progname, sentry: nil)
       sentry ||= {}
       sentry_options = sentry.merge level: severity_name_for(severity)
@@ -40,11 +41,11 @@ module Bullhorn
 
       if message.is_a?(Exception) # and severity >= Logger::ERROR
         # @see https://docs.sentry.io/clients/ruby/usage/#reporting-failures
-        Raven.capture_exception message, **sentry_options
+        Sentry.capture_exception message, **sentry_options
       else
         # @see https://docs.sentry.io/clients/ruby/usage/#reporting-messages
         # @see https://docs.sentry.io/clients/ruby/context/
-        Raven.capture_message message, **sentry_options
+        Sentry.capture_message message, **sentry_options
       end
     end
 

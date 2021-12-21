@@ -36,5 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "newrelic_rpm"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.9"
-  spec.add_development_dependency "sentry-raven"
+  spec.add_development_dependency "sentry-ruby", "~> 4.7"
 end
