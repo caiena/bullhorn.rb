@@ -4,4 +4,4 @@ IFS=$'\n\t'
 set -vx
 
 # executing rake
-docker-compose run --rm sdk_kit bundle exec rake "$@"
+docker-compose run --rm bullhorn bundle exec rake "$@"
