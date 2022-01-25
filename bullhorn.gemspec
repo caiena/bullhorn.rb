@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
 
   # spec.add_dependency "dotenv"
   # spec.add_dependency "thor"
-  spec.add_dependency "faraday", "~> 1.7.2"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "guard-rspec"

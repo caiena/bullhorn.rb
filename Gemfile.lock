@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     bullhorn (0.2.0.pre.dev)
-      faraday (~> 1.7.2)
 
 GEM
   remote: https://rubygems.org/
