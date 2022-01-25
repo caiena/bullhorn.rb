@@ -1,0 +1,24 @@
+
+#
+# This is the development purpose docker-compose file
+##
+
+---
+version: "3"
+
+volumes:
+  bundler_data:
+
+services:
+  bullhorn:
+    image: "bullhorn:local"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # TIP: exporte esses valores no seu ~/.bashrc
+        APP_USER_UID:  ${DOCKER_USER_UID:-1000}
+        APP_GROUP_GID: ${DOCKER_GROUP_GID:-1000}
+    volumes:
+      - bundler_data:/app/vendor/
+      - .:/app
