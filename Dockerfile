@@ -18,8 +18,8 @@ RUN apk add --update bash openssh git tzdata curl less && \
   build-base \
   libxml2-dev libxslt-dev
 
-# rubygems 3.2.7 provides bundler 2.2.7
-RUN gem update --system "3.2.7"
+# rubygems 3.2.7 provides bundler 2.3.4
+RUN gem update --system "3.3.4"
 
 # user handling
 RUN addgroup -g $APP_GROUP_GID -S $APP_GROUP && \
