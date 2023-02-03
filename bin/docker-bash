@@ -4,4 +4,4 @@ IFS=$'\n\t'
 set -vx
 
 # opening bash session
-docker-compose run --rm bullhorn bash
+docker compose run --rm bullhorn bash

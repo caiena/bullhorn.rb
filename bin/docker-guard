@@ -3,4 +3,4 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
-docker-compose run --rm bullhorn bundle exec guard
+docker compose run --rm bullhorn bin/guard

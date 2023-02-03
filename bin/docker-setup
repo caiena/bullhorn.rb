@@ -9,13 +9,13 @@ set -vx
 
 
 # making sure nothing is up
-docker-compose down -v
+docker compose down -v
 
 # setup bullhorn
-docker-compose build bullhorn
-docker-compose run --rm bullhorn bundle install
+docker compose build bullhorn
+docker compose run --rm bullhorn bundle install
 
 
-docker-compose down
+docker compose down
 
 echo "done! now fire it up with bin/docker-bash"
